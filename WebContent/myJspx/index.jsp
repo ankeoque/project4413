@@ -13,7 +13,7 @@
 <jsp:include page="../fragment/header.jsp" flush="true" />
 
 <div class="mysidebar">
-       <%@include file="../fragment/side-category.jsp" %>
+	<jsp:include page="../fragment/side-category.jsp" flush="true" />
 </div>
    
 <div class="main">
@@ -21,11 +21,17 @@
 		<h2>Our Top Rating</h2>
 		<c:forEach begin="0" end="3" items="${bookList}" var="stu">
 			<div style="display:inline-block; margin-right: -300px;">
-				<a href="${initParam['param2']}?item=${stu.path}"><img src="../project/images/${stu.path}.jpg" />
-			    <h3>${stu.title} </h3></a>
-			    <h4>Rating: ${stu.rating} </h4>
-			    <p>Author: ${stu.author} </p>
-			    <p>Price: CAD ${stu.price} </p>
+				<form method="GET" action="cartctrl">
+					<a href="${initParam['param2']}?item=${stu.path}"><input type="hidden" name="book_path" value="${stu.path}">
+					<img src="../project/images/${stu.path}.jpg" />
+				    <h3>${stu.title} </h3></a><input type="hidden" name="book_title" value="${stu.title}">
+				    <h4>Rating: ${stu.rating} </h4><input type="hidden" name="book_rating" value="${stu.rating}">
+				    <p>Author: ${stu.author} </p><input type="hidden" name="book_author" value="${stu.author}">
+				    <p>Price: CAD ${stu.price} </p><input type="hidden" name="book_price" value="${stu.price}">
+				    <input type="hidden" name="book_id" value="${stu.id}"><input type="hidden" name="book_category" value="${stu.category}">
+				    <input type="hidden" name="quantity" value="1"><input type="hidden" name="action" value="add">
+	             	<input type="submit" name="addToCart" value="Add To Cart">
+             	</form>
 		    </div>
 	    </c:forEach>
 	</div>
@@ -36,11 +42,17 @@
 		<c:forEach items="${bookList}" var="stu">
 			<c:if test="${stu.category eq 'Science'}">
 		        <div style="display:inline-block; margin-right: -300px;">
-					<a href="${initParam['param2']}?item=${stu.path}"><img src="../project/images/${stu.path}.jpg" />
-				    <h3>${stu.title} </h3></a>
-				    <p>Author: ${stu.author} </p>
-				    <p>Rating: ${stu.rating} </p>
-				    <p>Price: CAD ${stu.price} </p>
+					<form method="GET" action="cartctrl">
+					<a href="${initParam['param2']}?item=${stu.path}"><input type="hidden" name="book_path" value="${stu.path}">
+					<img src="../project/images/${stu.path}.jpg" />
+				    <h3>${stu.title} </h3></a><input type="hidden" name="book_title" value="${stu.title}">
+				    <p>Rating: ${stu.rating} </p><input type="hidden" name="book_rating" value="${stu.rating}">
+				    <p>Author: ${stu.author} </p><input type="hidden" name="book_author" value="${stu.author}">
+				    <p>Price: CAD ${stu.price} </p><input type="hidden" name="book_price" value="${stu.price}">
+				    <input type="hidden" name="book_id" value="${stu.id}"><input type="hidden" name="book_category" value="${stu.category}">
+				    <input type="hidden" name="quantity" value="1"><input type="hidden" name="action" value="add">
+	             	<input type="submit" name="addToCart" value="Add To Cart">
+             	</form>
 			    </div>
 		    </c:if>
 	    </c:forEach>
@@ -53,11 +65,18 @@
 		<c:forEach items="${bookList}" var="stu">
 			<c:if test="${stu.category eq 'Fiction'}">
 		        <div style="display:inline-block; margin-right: -300px;">
-					<a href="${initParam['param2']}?item=${stu.path}"><img src="../project/images/${stu.path}.jpg" />
-				    <h3>${stu.title} </h3></a>
-				    <p>Author: ${stu.author} </p>
-				    <p>Rating: ${stu.rating} </p>
-				    <p>Price: CAD ${stu.price} </p>
+					
+				<form method="GET" action="cartctrl">
+					<a href="${initParam['param2']}?item=${stu.path}"><input type="hidden" name="book_path" value="${stu.path}">
+					<img src="../project/images/${stu.path}.jpg" />
+				    <h3>${stu.title} </h3></a><input type="hidden" name="book_title" value="${stu.title}">
+				    <p>Rating: ${stu.rating} </p><input type="hidden" name="book_rating" value="${stu.rating}">
+				    <p>Author: ${stu.author} </p><input type="hidden" name="book_author" value="${stu.author}">
+				    <p>Price: CAD ${stu.price} </p><input type="hidden" name="book_price" value="${stu.price}">
+				    <input type="hidden" name="book_id" value="${stu.id}"><input type="hidden" name="book_category" value="${stu.category}">
+				    <input type="hidden" name="quantity" value="1"><input type="hidden" name="action" value="add">
+	             	<input type="submit" name="addToCart" value="Add To Cart">
+             	</form>
 			    </div>
 		    </c:if>
 	    </c:forEach>
@@ -70,11 +89,18 @@
 		<c:forEach items="${bookList}" var="stu">
 			<c:if test="${stu.category eq 'Engineering'}">
 		        <div style="display:inline-block; margin-right: -300px;">
-					<a href="${initParam['param2']}?item=${stu.path}"><img src="../project/images/${stu.path}.jpg" />
-				    <h3>${stu.title} </h3></a>
-				    <p>Author: ${stu.author} </p>
-				    <p>Rating: ${stu.rating} </p>
-				    <p>Price: CAD ${stu.price} </p>
+					
+				<form method="GET" action="cartctrl">
+					<a href="${initParam['param2']}?item=${stu.path}"><input type="hidden" name="book_path" value="${stu.path}">
+					<img src="../project/images/${stu.path}.jpg" />
+				    <h3>${stu.title} </h3></a><input type="hidden" name="book_title" value="${stu.title}">
+				    <p>Rating: ${stu.rating} </p><input type="hidden" name="book_rating" value="${stu.rating}">
+				    <p>Author: ${stu.author} </p><input type="hidden" name="book_author" value="${stu.author}">
+				    <p>Price: CAD ${stu.price} </p><input type="hidden" name="book_price" value="${stu.price}">
+				    <input type="hidden" name="book_id" value="${stu.id}"><input type="hidden" name="book_category" value="${stu.category}">
+				    <input type="hidden" name="quantity" value="1"><input type="hidden" name="action" value="add">
+	             	<input type="submit" name="addToCart" value="Add To Cart">
+             	</form>
 			    </div>
 		    </c:if>
 	    </c:forEach>

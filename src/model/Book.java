@@ -8,7 +8,9 @@ public class Book {
 	 private String title;
 	 private String rating;
 	 private String path;
-	 public String getRating() {
+	 
+	
+	public String getRating() {
 		return rating;
 	}
 

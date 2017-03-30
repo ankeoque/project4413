@@ -21,11 +21,17 @@
       <div class="panel">
       	<c:forEach items="${bookList}" var="stu">
 			<div style="display:inline-block; margin-right: -300px;">
-				<a href="${initParam['param2']}?item=${stu.path}"><img src="../project/images/${stu.path}.jpg" />
-			    <h3>${stu.title} </h3></a>
-			    <p>Author: ${stu.author} </p>
-			    <p>Rating: ${stu.rating} </p>
-			    <p>Price: ${stu.price} </p>
+				<form method="GET" action="cartctrl">
+					<a href="${initParam['param2']}?item=${stu.path}"><input type="hidden" name="book_path" value="${stu.path}">
+					<img src="../project/images/${stu.path}.jpg" />
+				    <h3>${stu.title} </h3></a><input type="hidden" name="book_title" value="${stu.title}">
+				    <p>Rating: ${stu.rating} </p><input type="hidden" name="book_rating" value="${stu.rating}">
+				    <p>Author: ${stu.author} </p><input type="hidden" name="book_author" value="${stu.author}">
+				    <p>Price: CAD ${stu.price} </p><input type="hidden" name="book_price" value="${stu.price}">
+				    <input type="hidden" name="book_id" value="${stu.id}"><input type="hidden" name="book_category" value="${stu.category}">
+				    <input type="hidden" name="quantity" value="1"><input type="hidden" name="action" value="add">
+	             	<input type="submit" name="addToCart" value="Add To Cart">
+             	</form>
 			    
 		    </div>
 	    </c:forEach>

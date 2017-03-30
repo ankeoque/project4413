@@ -16,16 +16,20 @@
     </div>
     
     <div class="main">
-    	<img class="img-float" src="../project/images/${bookList.path}.jpg" />
-    	<div class="item-info">
-    		<h2>${bookList.title}</h2>
-    		<h5>Description: The item screen shows detailed information about an individual item for sale</h5>
-    		<h5>Author: ${bookList.author}</h5>
-    		<h5>Category: ${bookList.category}</h5>
-    		<h5>Price: $${bookList.price}</h5>
-    		<h5>Rating: ${bookList.rating}</h5>
-    		<button>Add To Cart</button>
-    	</div>	
+    	<form method="GET" action="cartctrl">
+	    	<img class="img-float" src="../project/images/${bookList.path}.jpg" />
+	    	<div class="item-info">
+	    		<h2>${bookList.title} </h2><input type="hidden" name="book_title" value="${bookList.title}">
+			    <h5>Book ID: ${bookList.id}</h5><input type="hidden" name="book_id" value="${bookList.id}">
+			    <h5>Rating: ${bookList.rating} </h5><input type="hidden" name="book_rating" value="${bookList.rating}">
+		 				<h5>Category: ${bookList.category}</h5><input type="hidden" name="book_category" value="${bookList.category}">
+			    <h5>Author: ${bookList.author} </h5><input type="hidden" name="book_author" value="${bookList.author}">
+			    <h5>Price: CAD ${bookList.price} </h5><input type="hidden" name="book_price" value="${bookList.price}">
+			    
+			    <input type="hidden" name="quantity" value="1"><input type="hidden" name="action" value="add">
+		        <input type="submit" name="addToCart" value="Add To Cart">
+	    	</div>
+    	</form>   
     </div>
     	
     <br><br>
