@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="model.Book"%>
+<%@ page import="model.Category"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c"%>
+ 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>HomePage</title>
+</head>
+<body>
+	<jsp:include page="../fragment/header.jsp" flush="true" />
+
+<div class="mysidebar">
+       <%@include file="../fragment/side-category.jsp" %>
+</div>
+   
+<div class="main">
+	<div id="block1">
+		<h2>Best Sellers</h2>
+		<img id="image1" src="images/harryPotter.jpg" />
+		<img id="image2" src="images/lordOfRings.jpg" />
+		<img id="image3" src="images/envScience.jpg" />
+		<img id="image4" src="images/securityEng.jpg" />
+		<img id="image5" src="images/automobileEng.jpg" />
+	</div>
+	
+	<br />
+	
+	<h2>Browse Books</h2>
+	<div id="form3">
+		<label for="title">by Title:</label>
+		<input for="title" type="text" name="title"></input>
+		<label for="author">by Author:</label>
+		<input for="author" type="text" name="author"></input>
+		<input type="submit" name="submit" value="Search" id="search"></input>
+	</div>
+	
+	<br />
+	<h2>Featured Books</h2>
+	<div id="block2">
+		<c:forEach items="${bookList}" var="stu">
+			<a href="${initParam['param2']}?item=${stu.path}"><div class="img">
+			    <img src="${stu.path}" />
+			    <pre class="img1Description">${stu.title} <span id="author">(by ${stu.author})</span>
+			    <span id="rating">Price: ${stu.price}</span></pre>
+		    </div></a>
+	    </c:forEach>
+		<a class="link" href="">View more</a>
+	</div>
+	
+	
+	
+</div>
+
+<%@include file="../fragment/footer.jsp" %>
+</body>
+</html>
